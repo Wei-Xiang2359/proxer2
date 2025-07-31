@@ -1,0 +1,20 @@
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api1
+      - api2
+
+  api1:
+    build: ./flask_app
+    expose:
+      - "5001"
+
+  api2:
+    build: ./socket_server
+    expose:
+      - "5002"
