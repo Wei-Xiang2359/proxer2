@@ -18,3 +18,5 @@ services:
     build: ./socket_server
     expose:
       - "5002"
+
+test
